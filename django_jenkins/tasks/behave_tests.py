@@ -59,23 +59,23 @@ def testCaseFactory(name):
                 sys.exit(str(e))
 
             if self.behave_config.show_snippets and runner.undefined:
-                msg = u"\nYou can implement step definitions for undefined steps with "
-                msg += u"these snippets:\n\n"
+                msg = "\nYou can implement step definitions for undefined steps with "
+                msg += "these snippets:\n\n"
                 printed = set()
 
                 if sys.version_info[0] == 3:
                     string_prefix = "('"
                 else:
-                    string_prefix = u"(u'"
+                    string_prefix = "(u'"
 
                 for step in set(runner.undefined):
                     if step in printed:
                         continue
                     printed.add(step)
 
-                    msg += u"@" + step.step_type + string_prefix + step.name + u"')\n"
-                    msg += u"def impl(context):\n"
-                    msg += u"    assert False\n\n"
+                    msg += "@" + step.step_type + string_prefix + step.name + "')\n"
+                    msg += "def impl(context):\n"
+                    msg += "    assert False\n\n"
 
                 sys.stderr.write(behave.formatter.ansi_escapes.escapes['undefined'] + msg + behave.formatter.ansi_escapes.escapes['reset'])
                 sys.stderr.flush()
