@@ -5,6 +5,8 @@ import unittest
 import sys
 
 import behave
+import behave.configuration
+import behave.runner
 from os.path import dirname, abspath, join, isdir
 from django.db.models import get_app
 from django.conf import settings
